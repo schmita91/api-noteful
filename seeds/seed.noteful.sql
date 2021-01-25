@@ -1,28 +1,28 @@
 BEGIN;
 
-INSERT INTO folders (id, folder_name)
+INSERT INTO noteful_folders (folder_name)
 VALUES
-    (1, 'Important'),
-    (2, 'Super'),
-    (3, 'Spangley')
+    ('Important'),
+    ('Super'),
+    ('Spangley')
 ;
 
-INSERT INTO notes (note_name, content, folder_id)
+INSERT INTO noteful_notes (note_name, modified, folderId, content)
 VALUES
-    ('Dogs', 'Lorum ipsum....', 1),
-    ('Birds', 'Lorum ipsum....', 1),
-    ('Bears', 'Lorum ipsum....', 1),
-    ('Lions', 'Lorum ipsum....', 1),
-    ('Bats', 'Lorum ipsum....', 1),
-    ('Cats', 'Lorum ipsum....', 2),
-    ('Pigs', 'Lorum ipsum....', 2),
-    ('Horses', 'Lorum ipsum....', 2),
-    ('Elephants', 'Lorum ipsum....', 2),
-    ('Turtles', 'Lorum ipsum....', 2),
-    ('Zebras', 'Lorum ipsum....', 2),
-    ('Tigers', 'Lorum ipsum....', 3),
-    ('Wolves', 'Lorum ipsum....', 3),
-    ('Monkeys', 'Lorum ipsum....', 3)
+    ('Dogs', now(), 1, 'Lorum ipsum....'),
+    ('Birds', now(), 1, 'Lorum ipsum....'),
+    ('Bears', now(), 1, 'Lorum ipsum....'),
+    ('Lions', now(), 1, 'Lorum ipsum....'),
+    ('Bats', now(), 1, 'Lorum ipsum....'),
+    ('Cats', now(), 2, 'Lorum ipsum....'),
+    ('Pigs', now(), 2, 'Lorum ipsum....'),
+    ('Horses', now(), 2, 'Lorum ipsum....'),
+    ('Elephants', now(), 2, 'Lorum ipsum....'),
+    ('Turtles', now(), 2, 'Lorum ipsum....'),
+    ('Zebras', now(), 3, 'Lorum ipsum....'),
+    ('Tigers', now(), 3, 'Lorum ipsum....'),
+    ('Wolves', now(), 3, 'Lorum ipsum....'),
+    ('Monkeys', now(), 3, 'Lorum ipsum....')
 ;
 
 COMMIT;
