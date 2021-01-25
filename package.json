@@ -10,7 +10,7 @@
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:production": "heroku run npm run migrate",
     "predeploy": "npm audit && npm run migrate:production",
-    "deploy": "git push heroku main",
+    "deploy": "git push heroku main"
   },
   "keywords": [],
   "engines": {
