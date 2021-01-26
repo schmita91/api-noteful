@@ -20,6 +20,7 @@ notesRouter
         res.status(200)
         .json(notes.map(serializeNote))
     })
+    .catch(next);
 })
 .post(jsonParser, (req, res, next) =>{
     const {note_name, folderid, content} = req.body
@@ -47,8 +48,8 @@ notesRouter
        .location(`/api/notes/${note.id}`)
        .json(serializeNote(note))
     })
-    .catch(next)
-})
+    .catch(next);
+});
 
 
 notesRouter
@@ -60,13 +61,14 @@ notesRouter
             return res.status(404).json({error:{message:'Note not found'}})
         }
         res.note = note
-        next()
+        next();
     })
+    .catch(next);
 })
 .get((req, res)=>{
    return res.status(200).json(serializeNote(res.note))
 })
-.patch(jsonParser, (req, res) => {
+.patch(jsonParser, (req, res, next) => {
     const { folderid, content, note_name } = req.body
     updatedNote = {
         folderid,
@@ -81,11 +83,13 @@ notesRouter
     .then(note=>{
         res.status(204).json(serializeNote(note))
     })
+    .catch(next);
 })
-.delete((req, res)=>{
+.delete((req, res, next)=>{
     NotesService.deleteNote(req.app.get('db'), req.params.id)
     .then(note=>{
         res.status(204).end()
     })
+    .catch(next);
 })
 module.exports = notesRouter

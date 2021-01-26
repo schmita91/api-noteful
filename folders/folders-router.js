@@ -49,9 +49,10 @@ foldersRouter
     })
     .catch(next)
 })
-.get((req, res, next) => {
+.get((req, res) => {
         res.json(res.folder)
     })
+    
 .delete((req, res, next) => {
     const folderId = req.params.id
     FoldersService.deleteFolder(req.app.get('db'), folderId)
@@ -59,6 +60,7 @@ foldersRouter
         res.status(204).send(`folder with id ${folderId} successfully deleted`)
         .end()
     })
+    .catch(next)
 })
 
-module.exports = foldersRouter
+module.exports = foldersRouter;
