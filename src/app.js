@@ -30,7 +30,7 @@ app.use(function errorHandler(error, req, res, next) {
     res.status(500).json(response)
     })
 
-app.use(foldersRouter);
-app.use(notesRouter);
+app.use('/api/folders', foldersRouter);
+app.use('/api/notes', notesRouter);
 
 module.exports = app
